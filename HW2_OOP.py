@@ -216,6 +216,7 @@ class HPLaptop(Laptop):
     def dynamics(self):
         print(f"Laptop's dynamics are {self.laptop_dynamics}")
 
+
 hplaptop15s = HPLaptop('IPS', 'without backlight', 'buttonless', '5 MP', 'USB 3.1', 'Genius SP-Q160')
 
 hplaptop15s.screen()
