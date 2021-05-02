@@ -189,7 +189,7 @@ class Laptop(ABC):
         raise NotImplementedError
 
 
-class HPLapton(Laptop):
+class HPLaptop(Laptop):
     def __init__(self, laptop_screen, laptop_keyboard, laptop_touchpad, laptop_webcam, laptop_ports, laptop_dynamics):
         self.laptop_screen = laptop_screen
         self.laptop_keyboard = laptop_keyboard
@@ -216,3 +216,12 @@ class HPLapton(Laptop):
     def dynamics(self):
         print(f"Laptop's dynamics are {self.laptop_dynamics}")
 
+
+hplaptop15s = HPLaptop('IPS', 'without backlight', 'buttonless', '5 MP', 'USB 3.1', 'Genius SP-Q160')
+
+hplaptop15s.screen()
+hplaptop15s.keyboard()
+hplaptop15s.touchpad()
+hplaptop15s.webcam()
+hplaptop15s.ports()
+hplaptop15s.dynamics()
