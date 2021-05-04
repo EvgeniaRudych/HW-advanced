@@ -107,6 +107,7 @@ class Person:
     def __init__(self):
         arm1 = Arm("Beckoning")
         arm2 = Arm("Pointing")
+        self.arms = [arm1, arm2]
 
 
 class Arm:
@@ -115,6 +116,8 @@ class Arm:
 
 
 person1 = Person()
+for arm in person1.arms:
+    print(arm.gesture)
 
 
 class CellPhone:
@@ -123,12 +126,13 @@ class CellPhone:
 
 
 class Screen:
-    def __init__(self):
-        pass
+    def __init__(self, display_type):
+        self.display_type = display_type
 
 
-screen = Screen
+screen = Screen('ELD')
 cell_phone = CellPhone(Screen)
+print(screen.display_type)
 
 3.
 """
