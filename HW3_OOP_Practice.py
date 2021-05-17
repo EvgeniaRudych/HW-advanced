@@ -87,8 +87,8 @@ class OurRealtor(metaclass=RealtorMeta):
         probability = random.randint(1, 10)
         if probability == 1:
             person.availability_of_money = max(person.availability_of_money - random.randint(100, 10000), 0)
-        print(
-            f"Be careful next time. The realtor stole your money!. Now your current balance is {person.availability_of_money}")
+            print(
+                f"Be careful next time. The realtor stole your money!. Now your current balance is {person.availability_of_money}")
 
 
 house1 = House(50, 50000)
