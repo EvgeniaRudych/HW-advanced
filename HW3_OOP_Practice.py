@@ -41,7 +41,8 @@ class Person(Human):
         else:
             self.availability_of_money -= house.cost
             self.having_your_own_home.append(house)
-            print("You successfully have bought a house. Congratulations.")
+            print(
+                f"You successfully have bought a house. Congratulations. Now your current balance is {self.availability_of_money}.")
 
 
 class House:
@@ -91,16 +92,17 @@ class OurRealtor(metaclass=RealtorMeta):
                 f"Be careful next time. The realtor stole your money!. Now your current balance is {person.availability_of_money}")
 
 
-house1 = House(50, 50000)
-house2 = House(70, 70000)
-house3 = House(60, 60000)
+if __name__ == "__main__":
+    house1 = House(50, 50000)
+    house2 = House(70, 70000)
+    house3 = House(60, 60000)
 
-person1 = Person('Oleksii', 30, 70000, 15000, [])
-person1.provide_info_person()
-person1.make_money()
+    person1 = Person('Oleksii', 30, 70000, 15000, [])
+    person1.provide_info_person()
+    person1.make_money()
 
-realtor1 = OurRealtor('Evgenia', 25, [house1, house2, house3])
-realtor1.provide_info()
-realtor1.give_discount(house3)
-person1.buy_house(house3)
-realtor1.stealing(person1)
+    realtor1 = OurRealtor('Evgenia', 25, [house1, house2, house3])
+    realtor1.provide_info()
+    realtor1.give_discount(house3)
+    person1.buy_house(house3)
+    realtor1.stealing(person1)
