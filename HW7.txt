@@ -1,0 +1,79 @@
+1. Insert dump of shop.sql to your local database
+
+
+evgenia@evgenia-Mi-Laptop-Pro-15:~$ sudo mysqldump -u root --password=root shop > shop.sql
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_items           |
+| mysql              |
+| performance_schema |
+| shop               |
+| sys                |
++--------------------+
+
+2. Modify table products add user_id as foreign key
+
+
+mysql> ALTER TABLE products ADD COLUMN user_id INT NOT NULL;
+Query OK, 0 rows affected (0,03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE products SET user_id=1;
+Query OK, 1 row affected (0,01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> ALTER TABLE products ADD FOREiGN KEY (user_id) REFERENCES users (id);
+Query OK, 1 row affected (0,05 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> SHOW COLUMNS FROM products;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(255) | NO   |     | NULL    |                |
+| meta_title  | char(255)    | YES  |     | NULL    |                |
+| description | varchar(255) | YES  |     | NULL    |                |
+| price       | double       | NO   |     | NULL    |                |
+| old_price   | double       | YES  |     | NULL    |                |
+| is_active   | tinyint(1)   | YES  |     | NULL    |                |
+| user_id     | int          | NO   | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+8 rows in set (0,00 sec)
+
+3. Select users, their products, categories and images and write this query to file.
+
+SELECT users.first_name, products.title, c.title, pi.file FROM users INNER JOIN products ON users.id=products.user_id INNER JOIN categories_products as cp ON cp.product_id=products.id INNER JOIN categories as c ON c.id=cp.category_id INNER JOIN product_images as
+pi ON pi.product_id=products.id;
++-----------+-------+-------+------------------------------------------------------------------------------------+
+| last_name | title | title | file                                                                               |
++-----------+-------+-------+------------------------------------------------------------------------------------+
+| Luzhnyi   | Rolex | Watch | https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg   |
+| Luzhnyi   | Rolex | Watch | 11https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg |
+| Luzhnyi   | Rolex | Watch | 11https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg |
++-----------+-------+-------+------------------------------------------------------------------------------------+
+3 rows in set (0,00 sec)
+
+
+
+SELECT users.last_name, products.title, c.title, pi.file FROM users INNER JOIN products ON users.id=products.user_id INNER JOIN categories_products as cp ON cp.product_id=products.id INNER JOIN categories as c ON c.id=cp.category_id INNER JOIN product_images as pi ON pi.product_id=products.id INTO OUTFILE '/var/lib/mysql-files/excercise3.txt';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
