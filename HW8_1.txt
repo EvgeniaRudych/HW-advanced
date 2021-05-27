@@ -1,0 +1,22 @@
+  334  docker build eg
+  335  docker build Dockerfile  eg
+  336  docker build --help
+  337  docker build Dockerfile
+  338  docker build ./
+  339  docker images
+  340  docker run f62dc1bf2baf
+  341  clear
+  342  docker run f62dc1bf2baf -p 8080:8080
+  343  docker run -p 8080:8080 f62dc1bf2baf
+  344  docker run --help
+  345  docker run -p 8080:8080 --name eg f62dc1bf2baf
+  346  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  347  docker rm eg
+  348  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  349  docker stop eg
+  350  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  351  docker build ./
+  352  docker run -d -p 8080: 8080 --name eg 1d5b7cbb6238
+  353  docker run -d -p 8080:8080 --name eg 1d5b7cbb6238
+  354  docker rm eg
+  355  docker run -d -p 8080:8080 --name eg 1d5b7cbb6238
