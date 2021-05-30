@@ -7,6 +7,9 @@ class MockTestTrue:
     text = 'response.ok = True'
     status_code = 200
     ok = True
+    
+    def __init__(self, *args, **kwargs):
+        pass
 
 
 class MockTestFalse:
@@ -31,7 +34,7 @@ class TestEmployee(unittest.TestCase):
         self.employee1.apply_raise()
         self.assertEqual(self.employee1.pay, 21000)
 
-    @patch('employee.request.get')
+    @patch('employee.requests.get')
     def test_monthly_schedule(self, mock_get_response):
         mock_get_response.side_effect = MockTestTrue
         print(self.employee1.monthly_schedule('May'))
