@@ -7,7 +7,7 @@ class MockTestTrue:
     text = 'response.ok = True'
     status_code = 200
     ok = True
-    
+
     def __init__(self, *args, **kwargs):
         pass
 
@@ -42,3 +42,8 @@ class TestEmployee(unittest.TestCase):
         mock_get_response.side_effect = MockTestFalse
         print(self.employee1.monthly_schedule('May'))
         self.assertEqual(self.employee1.monthly_schedule('May'), 'Bad Response!')
+
+
+if __name__ == "__main__":
+    unittest.main()
+
