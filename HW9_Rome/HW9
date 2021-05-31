@@ -1,21 +1,12 @@
-venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker save -o ubuntu.tar
-"docker save" requires at least 1 argument.
-See 'docker save --help'.
+1. Save the ubuntu images to a tar/zip archive and then extract the layers and metadata files from them.(Tip: use `docker save -o` command)
 
-Usage:  docker save [OPTIONS] IMAGE [IMAGE...]
-
-Save one or more images to a tar archive (streamed to STDOUT by default)
-(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker save --help
-
-Usage:  docker save [OPTIONS] IMAGE [IMAGE...]
-
-Save one or more images to a tar archive (streamed to STDOUT by default)
-
-Options:
-  -o, --output string   Write to a file, instead of STDOUT
 (venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker save -o ubuntu.tar ubuntu:20.04
 (venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ /home/evgenia/PycharmProjects/HW_advanced/ubuntu.tar
 bash: /home/evgenia/PycharmProjects/HW_advanced/ubuntu.tar: Permission denied
+
+
+2*. Run a container that outputs the current date and time in Rome. Should be only Dockerfile.(Tip: user 'tzdata' library)
+
 (venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ time
 
 real    0m0,000s
