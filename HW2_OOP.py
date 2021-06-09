@@ -107,6 +107,7 @@ class Person:
     def __init__(self):
         arm1 = Arm("Beckoning")
         arm2 = Arm("Pointing")
+        self.arms = [arm1, arm2]
 
 
 class Arm:
@@ -115,6 +116,8 @@ class Arm:
 
 
 person1 = Person()
+for arm in person1.arms:
+    print(arm.gesture)
 
 
 class CellPhone:
@@ -123,12 +126,13 @@ class CellPhone:
 
 
 class Screen:
-    def __init__(self):
-        pass
+    def __init__(self, display_type):
+        self.display_type = display_type
 
 
-screen = Screen
+screen = Screen('ELD')
 cell_phone = CellPhone(Screen)
+print(screen.display_type)
 
 3.
 """
@@ -216,6 +220,10 @@ class HPLaptop(Laptop):
     def dynamics(self):
         print(f"Laptop's dynamics are {self.laptop_dynamics}")
 
+ hw10
+
+
+ master
 hplaptop15s = HPLaptop('IPS', 'without backlight', 'buttonless', '5 MP', 'USB 3.1', 'Genius SP-Q160')
 
 hplaptop15s.screen()
@@ -223,4 +231,7 @@ hplaptop15s.keyboard()
 hplaptop15s.touchpad()
 hplaptop15s.webcam()
 hplaptop15s.ports()
+ hw10
 hplaptop15s.dynamics()
+hplaptop15s.dynamics()
+ master
