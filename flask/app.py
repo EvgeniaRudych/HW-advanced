@@ -1,4 +1,6 @@
 # flask_web/app.py
+import json
+
 from flask import Flask, render_template, request, Response
 from flask_restful import Resource, Api
 import requests
@@ -70,7 +72,11 @@ class Todo(Resource):
 
     def put(self, todo_id):
         todos[todo_id] = request.json.get('text')
-        return {todo_id: todos[todo_id]}
+        data = {todo_id: todos[todo_id]}
+        with open('todos.json', 'w') as write_file:
+            json.dump(data, write_file)
+        write_file.close()
+        return data
 
     def delete(self, todo_id):
         del todos[todo_id]
@@ -87,8 +93,28 @@ class TodoList(Resource):
         return todos
 
 
+class WeatherAPI(Resource):
+    def get(self):
+        city = request.form.get("city")
+        querystring = {"q": "", "cnt": "1", "mode": "null", "lon": "0", "type": "link, accurate", "lat": "0",
+                       "units": "metric"}
+
+        headers = {
+            'x-rapidapi-key': Config.WEATHER_API_KEY,
+            'x-rapidapi-host': Config.WEATHER_API_HOST
+        }
+        response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
+        if response.status_code == 200:
+            data = response.json()
+            weather = data['list'][0]
+            return render_template("weather.html", weather=weather)
+
+        return Response(status=404)
+
+
 api.add_resource(Todo, '/todos/<int:todo_id>')
 api.add_resource(TodoList, '/todos')
+api.add_resource(WeatherAPI, '/weather')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
