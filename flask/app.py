@@ -16,21 +16,26 @@ def homepage():
 
 @app.route('/search', methods=['POST'])
 def search_weather():
-    cities = request.form.get("city")
-    cities_list = cities.split(",")
-    for city in cities_list:
-        querystring = {"q": city, "cnt": "1", "mode": "null", "lon": "0", "type": "link, accurate", "lat": "0",
-                       "units": "metric"}
+    cities_list = request.form.getlist('city')
+
     headers = {
         'x-rapidapi-key': Config.WEATHER_API_KEY,
         'x-rapidapi-host': Config.WEATHER_API_HOST
     }
 
-    response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
-    if response.status_code == 200:
-        data = response.json()
-        weather = data['list'][0]
-        return render_template("weather.html", weather=weather)
+    weathers = []
+
+    for city in cities_list:
+        querystring = {"q": city, "cnt": "1", "mode": "null", "type": "link, accurate", "units": "metric"}
+
+        response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
+        if response.status_code == 200:
+            data = response.json()
+            print(data)
+            weathers.append(data['list'][0])
+
+    if len(weathers) > 0:
+        return render_template("weathers.html", weathers=weathers)
 
     return Response(status=404)
 
@@ -47,7 +52,7 @@ def search_lon_lat():
         'x-rapidapi-host': Config.WEATHER_API_HOST
     }
 
-    response = requests.request("GET", Config.WEATHER_API_URL, headers=headers)
+    response = requests.request("GET", Config.WEATHER_API_URL, headers=headers, params=querystring)
     if response.status_code == 200:
         data = response.json()
         weather = data['list'][0]

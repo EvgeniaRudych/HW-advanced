@@ -53,8 +53,8 @@ class ApiMock:
 
 def test_mock_search_weather(client, mocker):
     mocker.patch('requests.request', side_effect=ApiMock)
-    response = client.post("/search", data={"cities": "Kiev"})
+    response = client.post("/search", data={"city": "Kiev"})
     print(response)
     assert response.status_code == 200
     print(response.data)
-    assert b"Weather for Kiev" in response.data
+    assert b"Weather for Kyiv" in response.data
