@@ -43,3 +43,4 @@ def article_store():
     db.session.add(article)
     db.session.commit()
     return redirect("/")
+

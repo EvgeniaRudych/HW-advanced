@@ -1,8 +1,9 @@
 from app import app, api, db
-from flask import render_template, request, Response
+from flask import render_template, request, Response, jsonify
 from config import Config, articles
 from flask_restful import Resource, Api
 from models.models import Article, User
+from datetime import datetime
 
 
 class MenuItem(Resource):
@@ -66,17 +67,58 @@ class ArticlesEntity(Resource):
 
 
 class Users(Resource):
+    # add
+    def post(self):
+        data = request.json
+        user = User(
+            username=data.get('username'),
+            email=data.get('email'),
+            created=datetime.now(),
+            bio=data.get('bio'),
+            admin=False,
+        )
+        db.session.add(user)
+        db.session.commit()
+        user.created = user.created.__str__()
+        return user.serialize()
+
+    # View All
     def get(self):
-        user = User.query.get(1)
-        serialized_articles = []
-        for article in user.articles:
-            print(article)
-            serialized_articles.append(article.serialize)
-        return serialized_articles
+        users = User.query
+        serialized_users = []
+        for user in users.all():
+            user.created = user.created.__str__()
+            serialized_users.append(user.serialize())
+        return serialized_users
+
+
+class UserModify(Resource):
+    # View One
+    def get(self, id):
+        user = User.query.get(id)
+        if user is None:
+            return Response(status=404)
+        user.created = user.created.__str__()
+        return user.serialize()
+
+    # Update
+    def put(self, id):
+        data = request.json
+        user = User.query.get(id)
+        if user is None:
+            return Response(status=404)
+        else:
+            user.username = data.get('username')
+            user.email = data.get('email')
+            user.bio = data.get('bio')
+            db.session.commit()
+
+            user.created = user.created.__str__()
+            return user.serialize()
 
 
 api.add_resource(MenuItem, '/api/menu-items')
 api.add_resource(Articles, '/api/articles')
 api.add_resource(Users, '/api/users')
+api.add_resource(UserModify, '/api/users/<int:id>')
 api.add_resource(ArticlesEntity, '/api/articles/<int:id>')
-
