@@ -1,0 +1,314 @@
+1)docker build -t flask_app .
+Sending build context to Docker daemon  5.632kB
+Step 1/5 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update && apt-get install -y python python3-pip
+ ---> Using cache
+ ---> 86e7f1b954fb
+Step 3/5 : RUN pip install flask
+ ---> Using cache
+ ---> 913324dfd9a1
+Step 4/5 : COPY app.py /opt/
+ ---> Using cache
+ ---> 214c84b3ab32
+Step 5/5 : ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ ---> Using cache
+ ---> f62dc1bf2baf
+Successfully built f62dc1bf2baf
+Successfully tagged flask_app:latest
+
+2)(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced/Docker_HW8$ docker run -d -p 8080:8080 flask_app
+664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb
+
+(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+664468776b5c   flask_app   "/bin/sh -c 'FLASK_A…"   3 minutes ago   Up 3 minutes   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   cranky_gauss
+
+3)(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced/Docker_HW8$ docker attach 6644
+
+4)(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker inspect 6644
+[
+    {
+        "Id": "664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb",
+        "Created": "2021-07-16T20:00:24.439216845Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 10831,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-07-16T20:00:24.719302704Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f62dc1bf2baf2846b03fb8e1f770dd63801dd81176c475c4e557328bda787eb1",
+        "ResolvConfPath": "/var/lib/docker/containers/664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb/hostname",
+        "HostsPath": "/var/lib/docker/containers/664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb/hosts",
+        "LogPath": "/var/lib/docker/containers/664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb/664468776b5cc00f08c3f2560fa04a5244a1d3e71a6c9621e0fc2177c5b996fb-json.log",
+        "Name": "/cranky_gauss",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/bc8a2075f07007310b723653ec13784b8138424f30c0856940859f7f0543d880-init/diff:/var/lib/docker/overlay2/ee9c00e84bf3e1cba02026fed2b49bcf55e8e0a664adb664546fad897a8bd1d7/diff:/var/lib/docker/overlay2/4301fc7f8a977f4f35be171f7f6d979ac14e38c555aef6ca522ad847a954565c/diff:/var/lib/docker/overlay2/1000e71ebdc2bebadb8f280aaa08dd8f49ee1f94421cd51a92a094432d0342df/diff:/var/lib/docker/overlay2/b44aacd734604f6ca5d97c36080cd8a6bce4454819972630028f1b0521c0746f/diff:/var/lib/docker/overlay2/d3a8b7783fd965b061f2bec119371dd66bcee6d95a62531558edb176c8052fc3/diff:/var/lib/docker/overlay2/507ba8c32d469b6d1c5a862bbc0d9cbc2ea51c77e7614df3da56365d21005c63/diff",
+                "MergedDir": "/var/lib/docker/overlay2/bc8a2075f07007310b723653ec13784b8138424f30c0856940859f7f0543d880/merged",
+                "UpperDir": "/var/lib/docker/overlay2/bc8a2075f07007310b723653ec13784b8138424f30c0856940859f7f0543d880/diff",
+                "WorkDir": "/var/lib/docker/overlay2/bc8a2075f07007310b723653ec13784b8138424f30c0856940859f7f0543d880/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "664468776b5c",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "flask_app",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/sh",
+                "-c",
+                "FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e479268ca77379ce48341ef4ae93773a6bc5f1587acb42b5d1a2d1020511adc9",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8080"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/e479268ca773",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "f15d428a4ed859c022a302d9c6a1a313206af4f1bb3b918e20ede3c6948b8ab9",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "f3ce94c450bfd38f6d67191e9b77237f9f69e6a1dd4b6693be3d4c4c3d74cecb",
+                    "EndpointID": "f15d428a4ed859c022a302d9c6a1a313206af4f1bb3b918e20ede3c6948b8ab9",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+6) (venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker stop 6644
+6644
+(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker logs 6644
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+
+CHANGING APP:
+"""
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def main():
+    return "Evgenia is here"
+
+"""
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+
+(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced/Docker_HW8$ docker build -t name_app .
+Sending build context to Docker daemon  5.632kB
+Step 1/5 : FROM ubuntu:20.04
+ ---> 7e0aa2d69a15
+Step 2/5 : RUN apt-get update && apt-get install -y python python3-pip
+ ---> Using cache
+ ---> 86e7f1b954fb
+Step 3/5 : RUN pip install flask
+ ---> Using cache
+ ---> 913324dfd9a1
+Step 4/5 : COPY app.py /opt/
+ ---> 7e6b6ded1365
+Step 5/5 : ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+ ---> Running in 3498f638ee5b
+Removing intermediate container 3498f638ee5b
+ ---> 6e0899192c02
+Successfully built 6e0899192c02
+Successfully tagged name_app:latest
+(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced/Docker_HW8$ docker run name_app
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [16/Jul/2021 20:11:56] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [16/Jul/2021 20:11:56] "GET /favicon.ico HTTP/1.1" 404 -
+docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS          PORTS     NAMES
+5a20bc395ed8   name_app   "/bin/sh -c 'FLASK_A…"   20 seconds ago   Up 18 seconds             wizardly_swirles
+(venv) evgenia@evgenia-Mi-Laptop-Pro-15:~/PycharmProjects/HW_advanced$ docker stop 5a
+5a
