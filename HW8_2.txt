@@ -1,0 +1,145 @@
+docker run -it --name my_story ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+Digest: sha256:b4aa552dd3f2ed84f3214b0e8add3648aee0205ef58295c92fe0899f96ad8755
+Status: Downloaded newer image for ubuntu:latest
+root@f6047d7692d8:/# run echo "Your story" > story.txt
+bash: run: command not found
+root@f6047d7692d8:/# echo "Your story" > story.txt
+root@f6047d7692d8:/# apt-get install cowsay
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package cowsay
+root@f6047d7692d8:/# apt-get update && apt-get install -y cowsay
+Get:1 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]
+Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/restricted amd64 Packages [33.4 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/universe amd64 Packages [11.3 MB]
+Get:7 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [27.6 kB]
+Get:8 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [274 kB]
+Get:9 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [721 kB]
+Get:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [833 kB]
+Get:11 http://archive.ubuntu.com/ubuntu focal/main amd64 Packages [1275 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages [177 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [29.8 kB]
+Get:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1247 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [974 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [299 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [4305 B]
+Fetched 17.8 MB in 3s (5138 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libgdbm-compat4 libgdbm6 libperl5.30 libtext-charwidth-perl netbase perl perl-modules-5.30
+Suggested packages:
+  filters cowsay-off gdbm-l10n perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl make libb-debug-perl liblocale-codes-perl
+The following NEW packages will be installed:
+  cowsay libgdbm-compat4 libgdbm6 libperl5.30 libtext-charwidth-perl netbase perl perl-modules-5.30
+0 upgraded, 8 newly installed, 0 to remove and 5 not upgraded.
+Need to get 6989 kB of archives.
+After this operation, 46.4 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 perl-modules-5.30 all 5.30.0-9ubuntu0.2 [2738 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 libgdbm6 amd64 1.18.1-5 [27.4 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal/main amd64 libgdbm-compat4 amd64 1.18.1-5 [6244 B]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libperl5.30 amd64 5.30.0-9ubuntu0.2 [3952 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 perl amd64 5.30.0-9ubuntu0.2 [224 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libtext-charwidth-perl amd64 0.04-10 [9872 B]
+Get:7 http://archive.ubuntu.com/ubuntu focal/main amd64 netbase all 6.1 [13.1 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 cowsay all 3.03+dfsg2-7 [18.5 kB]
+Fetched 6989 kB in 1s (5939 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package perl-modules-5.30.
+(Reading database ... 4121 files and directories currently installed.)
+Preparing to unpack .../0-perl-modules-5.30_5.30.0-9ubuntu0.2_all.deb ...
+Unpacking perl-modules-5.30 (5.30.0-9ubuntu0.2) ...
+Selecting previously unselected package libgdbm6:amd64.
+Preparing to unpack .../1-libgdbm6_1.18.1-5_amd64.deb ...
+Unpacking libgdbm6:amd64 (1.18.1-5) ...
+Selecting previously unselected package libgdbm-compat4:amd64.
+Preparing to unpack .../2-libgdbm-compat4_1.18.1-5_amd64.deb ...
+Unpacking libgdbm-compat4:amd64 (1.18.1-5) ...
+Selecting previously unselected package libperl5.30:amd64.
+Preparing to unpack .../3-libperl5.30_5.30.0-9ubuntu0.2_amd64.deb ...
+Unpacking libperl5.30:amd64 (5.30.0-9ubuntu0.2) ...
+Selecting previously unselected package perl.
+Preparing to unpack .../4-perl_5.30.0-9ubuntu0.2_amd64.deb ...
+Unpacking perl (5.30.0-9ubuntu0.2) ...
+Selecting previously unselected package libtext-charwidth-perl.
+Preparing to unpack .../5-libtext-charwidth-perl_0.04-10_amd64.deb ...
+Unpacking libtext-charwidth-perl (0.04-10) ...
+Selecting previously unselected package netbase.
+Preparing to unpack .../6-netbase_6.1_all.deb ...
+Unpacking netbase (6.1) ...
+Selecting previously unselected package cowsay.
+Preparing to unpack .../7-cowsay_3.03+dfsg2-7_all.deb ...
+Unpacking cowsay (3.03+dfsg2-7) ...
+Setting up libtext-charwidth-perl (0.04-10) ...
+Setting up perl-modules-5.30 (5.30.0-9ubuntu0.2) ...
+Setting up netbase (6.1) ...
+Setting up libgdbm6:amd64 (1.18.1-5) ...
+Setting up libgdbm-compat4:amd64 (1.18.1-5) ...
+Setting up libperl5.30:amd64 (5.30.0-9ubuntu0.2) ...
+Setting up perl (5.30.0-9ubuntu0.2) ...
+Setting up cowsay (3.03+dfsg2-7) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
+root@f6047d7692d8:/# cat story.txt|cowsay
+bash: cowsay: command not found
+root@f6047d7692d8:/# cowsay
+bash: cowsay: command not found
+root@f6047d7692d8:/# apt-get install -y cowsay
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+cowsay is already the newest version (3.03+dfsg2-7).
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+root@f6047d7692d8:/# co
+comm      command   compgen   complete  compopt   continue  coproc    corelist
+root@f6047d7692d8:/# co
+comm      command   compgen   complete  compopt   continue  coproc    corelist
+root@f6047d7692d8:/# apt-get install -y cowsay
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+cowsay is already the newest version (3.03+dfsg2-7).
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+root@f6047d7692d8:/# cowsay
+bash: cowsay: command not found
+root@f6047d7692d8:/# ls /usr/
+bin/     games/   include/ lib/     lib32/   lib64/   libx32/  local/   sbin/    share/   src/
+root@f6047d7692d8:/# /usr/games/cow
+cowsay    cowthink
+root@f6047d7692d8:/# /usr/games/cow
+cowsay    cowthink
+root@f6047d7692d8:/# /usr/games/cowsay test
+ ______
+< test >
+ ------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@f6047d7692d8:/# cat story.txt|/usr/games/cowsay
+ ____________
+< Your story >
+ ------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@f6047d7692d8:/# cowsay
+
+
+
+docker run -it --name my_story_2 ubuntu
+root@2876f75493be:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@2876f75493be:/# /usr/games/cowsay
+bash: /usr/games/cowsay: No such file or directory
+root@2876f75493be:/#

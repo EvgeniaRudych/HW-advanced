@@ -1,0 +1,189 @@
+ git clone git@github.com:EvgeniaRudych/cursor_git.git
+  168  git clone https://github.com/EvgeniaRudych/cursor_git.git
+  169  cd cursor_git/
+  170  touch first.py
+  171  git add first.py
+  172  git commit -m "adding first.py"
+  173  git log
+  174  touch second.py
+  175  git add second.py
+  176  git commit -m "adding second.py"
+  177  git rm first.py
+  178  git commit -m "removing first.py"
+  179  git add first.py
+  180  git commit -m clear
+  181  clear
+  182  git clone https://github.com/EvgeniaRudych/cursor_git.git
+  183  cd cursor_git/
+  184  touch first.py
+  185  git add first.py
+  186  git commit -m "adding first.py"
+  187  git log
+  188  touch second.py
+  189  git add second.py
+  190  git commit -m "adding second.py"
+  191  git rm first.py
+  192  git commit -m "removinf first.py"
+  193  git log
+  194  git push
+  195  git branch first
+  196  git branch second
+  197  echo 'print('Hello')' > second.py
+  198  git stash
+  199  git checkout first
+  200  git checkout second
+  201  git stash pop
+  202  git add second.py
+  203  git push
+  204  git push --set-upstream origin second
+  205  git push
+  206  git checkour first
+  207  git checkout first
+  208  echo 'print('Cursor')' >second.py
+  209  git add second.py
+  210  git commit -m "Change second.py"
+  211  git push
+  212  git push --set-upstream origin first
+  213  git checkout master
+  214  git merge second
+  215  git merge first
+  216  git status
+  217  clear
+  218  git clone https://github.com/EvgeniaRudych/cursor_git.git
+  219  cd cursor_git/
+  220  touch first.py
+  221  git add first.py
+  222  git commit -m "adding first.py"
+  223  git log
+  224  touch second.py
+  225  git add second.py
+  226  git commit -m "adding second.py"
+  227  git rm first.py
+  228  git commit -m "removing first.py"
+  229  git log
+  230  git push
+  231  git branch first
+  232  git branch second
+  233  echo 'print('Hello')' > second.py
+  234  git stash
+  235  git checkout first
+  236  git checkout second
+  237  git stash pop
+  238  git add second.py
+  239  git commit -m "changing second.py"
+  240  git branch
+  241  git push
+  242  git push --set-upstream origin second
+  243  git checkout first
+  244  echo 'print("Cursor")' > second.py
+  245  git push
+  246  git push --set-upstream origin first
+  247  git checkout master
+  248  git merge second
+  249  git merge first
+  250  git merge second
+  251  git commit -m "changing second.py"
+  252  git merge second
+  253  clear
+  254  git clone https://github.com/EvgeniaRudych/cursor_git.git
+  255  cd cursor_git/
+  256  touch first.py
+  257  git add first.py
+  258  commit -m "adding first.py"
+  259  git commit -m "adding first pie"
+  260  git log
+  261  clear
+  262  git status
+  263  git add HW2_OOP.py
+  264  git commit -m "adding HW2 OOP"
+  265  git checkout -b first
+  266  git add HW2_OOP.py
+  267  git commit -m "adding HW2 OOP"
+  268  git status
+  269  git statys
+  270  git status
+  271  git add HW2_OOP.py
+  272  git commit -m "Addingd HW2"
+  273  git add HW2_OOP.py
+  274  git commit -m "adding HW2"
+  275  skype
+  276  sudo apt-get install mysql-server mysql-client
+  277  sudo mysql_secure_installation
+  278  mysql -u root -p
+  279  sudo mysql -u root -p
+  280  SHOW DATABASES;
+  281  mysql -u root
+  282  sudo chmod 0777 my_items.sql
+  283  mysql -u root
+  284  mysql -u root -p
+  285  sudo mysql -u root -p
+  286  clear
+  287  sudo mysql -u root -p
+  288  clear
+  289  sudo mysql -u root --password=root my_items < my_items.sql
+  290  ді
+  291  ls
+  292  sudo mysql -u root -p
+  293  sudo mysqldump -u root --password=root my_items > my_items.sql
+  294  ls
+  295  cat my_items.sql
+  296  sudo mysql -u root -p
+  297  cd
+  298  ls
+  299  touch HW6_commands.txt
+  300  ls
+  301  sudo mysql -u root -p;
+  302  sudo mysqldump -u root --password = root shop > shop.sql
+  303  sudo mysqldump -u root --password=root shop > shop.sql
+  304  Naruto2804
+  305  sudo mysql -u root -p shop > shop.sql
+  306  sudo mysql -u root -p
+  307  sudo mysqldump -u root --password=root shop > shop.sql
+  308  sudo mysql -u root -p
+  309  cd
+  310  touch HW7.txt
+  311  sudo mysql -u root -p
+  312  sudo mysql -u root -p;
+  313  cd
+  314  ll
+  315  --help
+  316  ll --help
+  317  ll -a
+  318  sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg     lsb-release
+  319  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  320    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  321  sudo apt-get update
+  322  sudo groupadd docker
+  323  docker run hello-world
+  324  docker pull jenkins
+  325  docker pull jenkins:2.60.3
+  326  docker run -p 8000:8000 jenkins:2.60.3
+  327  git pull origin master
+  328  cd homeworks/docker
+  329  pip install app.py
+  330  pip install
+  331  pip install requirements.txt
+  332  pip install -r ./requirements.txt
+  333  python3.8 app.py
+  334  docker build eg
+  335  docker build Dockerfile  eg
+  336  docker build --help
+  337  docker build Dockerfile
+  338  docker build ./
+  339  docker images
+  340  docker run f62dc1bf2baf
+  341  clear
+  342  docker run f62dc1bf2baf -p 8080:8080
+  343  docker run -p 8080:8080 f62dc1bf2baf
+  344  docker run --help
+  345  docker run -p 8080:8080 --name eg f62dc1bf2baf
+  346  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  347  docker rm eg
+  348  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  349  docker stop eg
+  350  docker run -d -p 8080:8080 --name eg f62dc1bf2baf
+  351  docker build ./
+  352  docker run -d -p 8080: 8080 --name eg 1d5b7cbb6238
+  353  docker run -d -p 8080:8080 --name eg 1d5b7cbb6238
+  354  docker rm eg
+  355  docker run -d -p 8080:8080 --name eg 1d5b7cbb6238
